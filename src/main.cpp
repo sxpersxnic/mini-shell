@@ -5,13 +5,6 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-// std::string read_in(std::string &prompt) {
-// 	std::cout << *prompt; // Shell prompt
-// 	std::string in;
-// 	std::getline(std::cin, in);
-// 	return in;
-// }
-
 std::string read_in() {
 	std::cout << "> "; // Shell prompt
 	std::string in;
