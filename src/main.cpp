@@ -1,33 +1,53 @@
 #include <iostream>
 #include <string>
-#include <cstdlib>
+#include <sstream>
+#include <vector>
 
-// std::string readInput(std::string &prompt) {
+// std::string read_in(std::string &prompt) {
 // 	std::cout << *prompt; // Shell prompt
-// 	std::string input;
-// 	std::getline(std::cin, input);
-// 	return input;
+// 	std::string in;
+// 	std::getline(std::cin, in);
+// 	return in;
 // }
 
-std::string readInput() {
+std::string read_in() {
 	std::cout << "> "; // Shell prompt
-	std::string input;
-	std::getline(std::cin, input);
-	return input;
+	std::string in;
+	std::getline(std::cin, in);
+	return in;
 }
 
+std::vector<std::string> parse_in(const std::string& in) {
+	std::istringstream stream(in);
+	std::string tkn;
+	std::vector<std::string> tkns;
+
+	while (stream >> tkn) {
+		tkns.push_back(tkn);
+	}
+
+	return tkns;
+}
+
+
+
 int main() {
-	std::string input;
+	std::string in;
 
 	while (true) {
-		input = readInput();
+		in = read_in();
 
-		if (input == "exit") {
+		if (in == "exit") {
 			std::cout << "Exiting shell...\n";
 			break;
 		}
 
-		std::cout << "Input received: " << input << std::endl;
+		std::vector<std::string> tkns = parse_in(in);
+
+		std::cout << "Inputs received:\n"; // Placeholder to watch parsing
+		for (const auto& tkn : tkns) {
+			std::cout << " " << tkn << std::endl;
+		}
 	}
 
 	return 0;
