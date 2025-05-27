@@ -64,7 +64,7 @@ int main() {
 		in = read_in();
 
 		if (in == "exit") {
-			std::cout << "Exiting shell...\n";
+			std::cout << "Goodbye!\n";
 			break;
 		}
 
